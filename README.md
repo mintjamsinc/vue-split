@@ -33,7 +33,7 @@ export default {
     return {
       splitPercent: '28%',
       showFilter: true,
-    }
+    };
   },
   methods: {
     onResize(percent) {
