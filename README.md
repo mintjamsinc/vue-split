@@ -12,7 +12,7 @@ npm install --save-dev @mintjamsinc/vue-split
 ## Usage
 
 ```vue
-<Split>
+<Split :onResize="onResize" min="20%" :initial="splitPercent" :show="[showFilter, true]">
   <template v-slot:pane1>
     <!-- Defines the pane1 content of your application -->
   </template>
@@ -28,6 +28,17 @@ import Split from '@mintjamsinc/vue-split';
 export default {
   components: {
     Split: Split,
+  },
+  data() {
+    return {
+      splitPercent: '28%',
+      showFilter: true,
+    }
+  },
+  methods: {
+    onResize(percent) {
+      window.Webtop.local.set('splitPercent', percent + '%');
+    },
   },
 }
 ```
